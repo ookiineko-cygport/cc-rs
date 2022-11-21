@@ -2805,6 +2805,7 @@ impl Build {
             "x86_64-pc-windows-gnu" => Some("x86_64-w64-mingw32"),
             "x86_64-pc-windows-gnullvm" => Some("x86_64-w64-mingw32"),
             "x86_64-uwp-windows-gnu" => Some("x86_64-w64-mingw32"),
+            "x86_64-pc-cygwin" => Some("x86_64-pc-cygwin"),
             "x86_64-rumprun-netbsd" => Some("x86_64-rumprun-netbsd"),
             "x86_64-unknown-linux-gnu" => self.find_working_gnu_prefix(&[
                 "x86_64-linux-gnu", // rustfmt wrap
@@ -2886,6 +2887,7 @@ impl Build {
             || target.contains("netbsd")
             || target.contains("openbsd")
             || target.contains("windows-gnu")
+            || target.contains("cygwin")
         {
             Some(2)
         } else if target.contains("linux") {
